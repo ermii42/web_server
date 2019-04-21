@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">{{ car[1] }}</h1>
+        <p class="lead">Стоимость: {{ car[2] }}</p>
+        <hr class="my-4">
+        <p>Мощность (л.с.): {{ car[3] }}</p>
+        <p>Цвет: {{ car[4] }}</p>
+        <p>Дилерский центр: {{ dealer }}</p>
+        {% if car[6] != ""%}
+                    <p><img src="..\{{ car[6] }}"
+                            width="500" height="333" class="rightpic"></p>
+        {% endif %}
+    </div>
+    <a href="/index"> <button type="button" class="btn btn-outline-info">Назад</button></a>
+{% endblock %}
