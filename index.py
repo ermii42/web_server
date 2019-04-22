@@ -116,6 +116,23 @@ def car_admin():
                            cars=cars)
 
 
+@app.route('/dealer', methods=['GET'])
+def dealer_():
+    """
+    Вывод всей информации об всех дилерских центрах
+    :return:
+    информация для авторизованного пользователя
+    """
+    # если пользователь не авторизован, кидаем его на страницу входа
+    if 'username' not in session:
+        return redirect('/login')
+    dealers = DealersModel(db.get_connection()).get_all()
+    return render_template('dealers.html',
+                           username=session['username'],
+                           title='Просмотр наших размещений',
+                           dealers=dealers)
+
+
 @app.route('/add_car', methods=['GET', 'POST'])
 def add_car():
     """
@@ -146,11 +163,13 @@ def add_car():
         return redirect(url_for('car_admin'))
     return render_template("add_car.html", title='Добавление автомобиля', form=form)
 
+
 @app.route('/delete_car/<int:car_id>', methods=['GET'])
 def delete_car(car_id):
     cars = CarsModel(db.get_connection())
     cars.delete(car_id=car_id)
     return redirect(url_for('car_admin'))
+
 
 @app.route('/car/<int:car_id>', methods=['GET'])
 def car(car_id):
@@ -236,6 +255,7 @@ def delete_dealer(dealer_id):
     dealer = DealersModel(db.get_connection())
     dealer.delete(dealer_id=dealer_id)
     return redirect(url_for('dealer_admin'))
+
 
 @app.route('/dealer/<int:dealer_id>', methods=['GET'])
 def dealer(dealer_id):

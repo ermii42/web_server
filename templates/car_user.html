@@ -10,8 +10,7 @@
     {% for item in cars %}
         <div class="card" style="width: 60rem;">
           <div class="card-body">
-            <img src="{{ item[3] }}" alt="Иллюстрация"
-                    width="500" height="333" class="rightpic" style="float: right;">
+            <img src="{{ item[3] }}" alt="Иллюстрация" height="333" class="rightpic" style="float: right;">
             <h3 class="card-title">{{ item[0] }}</h3>
             <p class="card-text">{{ item[1] }}</p>
             <a href="/car/{{ item[2] }}" class="btn btn-primary">Подробнее</a>

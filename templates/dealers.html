@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+      <h1 class="display-4">Информация о наших расположениях</h1>
+      <p class="lead">На данной странице можно просматривать местоположения отелей</p>
+      <hr class="my-4">
+    </div>
+    {% for item in dealers %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">{{ item[1] }}</h3>
+            <p class="card-text">{{ item[2] }}</p>
+          </div>
+        </div>
+    {% endfor %}
+{% endblock %}
