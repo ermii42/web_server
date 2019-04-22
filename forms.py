@@ -26,7 +26,7 @@ class RegisterForm(FlaskForm):
 class AddCarForm(FlaskForm):
     name = StringField('Название')#, validators=[DataRequired()])
     price = IntegerField('Цена')#, validators=[DataRequired()])
-    adress = IntegerField('Адрес')#, validators=[DataRequired()])
+    adress = StringField('Адрес')#, validators=[DataRequired()])
     country = SelectField('Страна', coerce=int)  # , validators=[DataRequired()])
     description = TextAreaField('Описание')#, validators=[DataRequired()])
     image = FileField('Фото отеля')
@@ -38,7 +38,7 @@ class AddCarForm(FlaskForm):
 
     def save_im(self):
         im = self.image.data
-        print(im)
+        print(im, "!!!!")
         im_name = os.path.join('static', 'img', im.filename)
         im.save(im_name)
 

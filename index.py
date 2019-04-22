@@ -220,7 +220,7 @@ def dealer_admin():
     dealers = DealersModel(db.get_connection()).get_all()
     return render_template('dealer_admin.html',
                            username=session['username'],
-                           title='Просмотр Дилерских центров',
+                           title='Просмотр наших размещений',
                            dealers=dealers)
 
 

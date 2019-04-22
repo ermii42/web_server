@@ -1,12 +1,13 @@
 {% extends "base.html" %}
  
 {% block content %}
-    <h1>Привет, {{ username }}!</h1>
+    <h1>Здравствуйте, {{ username }}.</h1>
+    <h3>Добро пожаловать на наш сайт, что вас интересует?</h3>
 
 {% if "username" in session %}
     <div class="btn-group btn-group-lg" role="group" aria-label="...">
-        <a href="{{ url_for('car_admin') }}"><button type="button" class="btn btn-info">Машины</button></a>
-        <a href="{{ url_for('dealer_admin') }}"><button type="button" class="btn btn-info">Дилерские центры</button></a>
+        <a href="{{ url_for('car_admin') }}"><button type="button" class="btn btn-info">Отели</button></a>
+        <a href="{{ url_for('dealer_admin') }}"><button type="button" class="btn btn-info">Местоположения отелей</button></a>
     </div>
 {% endif %}
 

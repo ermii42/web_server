@@ -2,12 +2,12 @@
 
 {% block content %}
     <div class="jumbotron">
-      <h1 class="display-4">Информация об дилерских центрах</h1>
-      <p class="lead">На данной странице можно просматривать и редактировать дилерские центры</p>
+      <h1 class="display-4">Информация о наших расположениях</h1>
+      <p class="lead">На данной странице можно просматривать и редактировать местоположения отелей</p>
       <hr class="my-4">
-      <p>Чтобы что-то сделать, тыкай на кнопки</p>
+      <p>нажми на кнопку</p>
         <a href="{{ url_for('add_dealer') }}">
-            <button type="button" class="btn btn-secondary">Добавить дилерский центр</button>
+            <button type="button" class="btn btn-secondary">Добавить местоположение</button>
         </a>
     </div>
     {% for item in dealers %}

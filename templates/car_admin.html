@@ -2,12 +2,12 @@
 
 {% block content %}
     <div class="jumbotron">
-      <h1 class="display-4">Информация об автомобилях</h1>
-      <p class="lead">На данной странице можно просматривать и редактировать автомобили</p>
+      <h1 class="display-4">Информация об отелях</h1>
+      <p class="lead">На данной странице можно просматривать и редактировать отели</p>
       <hr class="my-4">
-      <p>Чтобы что-то сделать, тыкай на кнопки</p>
+      <p>нажмите на кнопку</p>
         <a href="{{ url_for('add_car') }}">
-            <button type="button" class="btn btn-secondary">Добавить автомобиль</button>
+            <button type="button" class="btn btn-secondary">Добавить отель</button>
         </a>
     </div>
     {% for item in cars %}
