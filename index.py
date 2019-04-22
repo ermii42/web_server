@@ -224,6 +224,12 @@ def dealer_admin():
                            dealers=dealers)
 
 
+@app.route('/delete_dealer/<int:dealer_id>', methods=['GET'])
+def delete_dealer(dealer_id):
+    dealer = DealersModel(db.get_connection())
+    dealer.delete(dealer_id=dealer_id)
+    return redirect(url_for('dealer_admin'))
+
 @app.route('/dealer/<int:dealer_id>', methods=['GET'])
 def dealer(dealer_id):
     """

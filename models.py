@@ -85,7 +85,7 @@ class DealersModel:
     def get(self, dealer_id):
         """Запрос дилерского центра по id"""
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM dealers WHERE dealer_id = ?", (str(dealer_id)))
+        cursor.execute("SELECT * FROM dealers WHERE dealer_id = ?", (str(dealer_id),))
         row = cursor.fetchone()
         return row
 
@@ -99,7 +99,7 @@ class DealersModel:
     def delete(self, dealer_id):
         """Удаление дилерского центра"""
         cursor = self.connection.cursor()
-        cursor.execute('''DELETE FROM dealers WHERE dealer_id = ?''', (str(dealer_id)))
+        cursor.execute('''DELETE FROM dealers WHERE dealer_id = ?''', (str(dealer_id),))
         cursor.close()
         self.connection.commit()
 
