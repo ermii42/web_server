@@ -84,6 +84,13 @@ def register():
     return render_template("register.html", title='Регистрация пользователя', form=form)
 
 
+@app.route('/contacts')
+def contacts():
+    if 'username' not in session:
+        return redirect('/login')
+    return render_template('contacts.html')
+
+
 """Работа с автомобилями"""
 
 
