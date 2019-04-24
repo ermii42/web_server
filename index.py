@@ -293,7 +293,7 @@ def add_dealer():
             # редирект на главную страницу
             return redirect(url_for('index'))
         return render_template("add_dealer.html", title='Добавление местоположения', form=form)
-#http://127.0.0.1:8080/
+
 
 if __name__ == '__main__':
     app.run(port=8083, host='127.0.0.1')
