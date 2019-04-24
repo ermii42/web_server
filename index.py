@@ -112,7 +112,7 @@ def car_admin():
     cars = CarsModel(db.get_connection()).get_all()
     return render_template('car_admin.html',
                            username=session['username'],
-                           title='Просмотр автомобилей',
+                           title='Просмотр отелей',
                            cars=cars)
 
 
@@ -161,7 +161,7 @@ def add_car():
                     image=os.path.join('static', 'img', form.image.data.filename))
         # редирект на главную страницу
         return redirect(url_for('car_admin'))
-    return render_template("add_car.html", title='Добавление автомобиля', form=form)
+    return render_template("add_car.html", title='Добавление отеля', form=form)
 
 
 @app.route('/delete_car/<int:car_id>', methods=['GET'])
@@ -190,7 +190,7 @@ def car(car_id):
     dealer = DealersModel(db.get_connection()).get(car[5])
     return render_template('car_info.html',
                            username=session['username'],
-                           title='Просмотр автомобиля',
+                           title='Просмотр отеля',
                            car=car,
                            dealer=dealer[1])
 
@@ -267,14 +267,11 @@ def dealer(dealer_id):
     # если пользователь не авторизован, кидаем его на страницу входа
     if 'username' not in session:
         return redirect('/login')
-    # если не админ, то его на главную страницу
-    if session['username'] != 'admin':
-        return redirect(url_for('index'))
     # иначе выдаем информацию
     dealer = DealersModel(db.get_connection()).get(dealer_id)
     return render_template('dealer_info.html',
                            username=session['username'],
-                           title='Просмотр информации о дилерском центре',
+                           title='Просмотр информации о наших местоположениях',
                            dealer=dealer)
 
 
@@ -295,7 +292,7 @@ def add_dealer():
             dealers.insert(name=form.name.data, address=form.address.data)
             # редирект на главную страницу
             return redirect(url_for('index'))
-        return render_template("add_dealer.html", title='Добавление дилерского центра', form=form)
+        return render_template("add_dealer.html", title='Добавление местоположения', form=form)
 #http://127.0.0.1:8080/
 
 if __name__ == '__main__':
